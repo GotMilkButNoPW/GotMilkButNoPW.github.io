@@ -1,6 +1,6 @@
 **==================================================**
 
-# GotMilkButNoPW/londing Project
+# GotMilkButNoPW Project
 
 This was my project from my first year of college, second semester. It was a mini-project for my introduction to web development course.
 
@@ -9,7 +9,7 @@ This is a simple static website (Landing Page) built purely with HTML and CSS.
 
 **==================================================**
 
-# โปรเจกต์ GotMilkButNoPW/londing
+# โปรเจกต์ GotMilkButNoPW
 
 นี่คือโปรเจกต์ที่ผมทำสมัยเรียนอยู่ปี 1 เทอม 2 ครับ มันเป็นโปรเจกต์เล็กๆ สำหรับวิชาการพัฒนาเว็บเบื้องต้น (Introduction to Web Development)
 
