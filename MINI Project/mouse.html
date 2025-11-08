@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .top-bar {
+            background: #333;
+            color: white;
+            padding: 12px 200px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-bar span {
+            margin-right: 15px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 15px 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            width: 180px;
+        }
+
+        .search-box {
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .search-box input {
+            padding: 12px 50px;
+            width: 600px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .user-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-icons a {
+            font-size: 20px;
+            color: hwb(0 83% 0%);
+            text-decoration: none;
+            margin-left: 15px;
+            cursor: pointer;
+            background: hwb(350 45% 2%);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background 0.4s;
+        }
+
+        .user-icons a:hover {
+            background: hsl(350, 100%, 78%);
+            color: white;
+            transition: color 0.8s;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            background: white;
+            justify-content: space-between;
+            padding: 13px 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            color: #ff9494;
+            background: none;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgb(247, 173, 173);
+            color: white;
+            transition: .3s;
+            border-right: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #e94560;
+            transition: 0.5s;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .menu ul li {
+            margin-right: 20px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: rgb(85, 85, 85);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            color: #e94560;
+        }
+        main {
+            padding: 20px 200px;
+        }
+
+        .products {
+            text-align: center;
+        }
+
+        .products h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            justify-content: space-between;
+
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+        }
+
+        .product-item h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .product-item p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-item button {
+            background-color: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: auto;
+        }
+
+        .product-item button:hover {
+            background-color: #d83450;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-size: 50px;
+            background-color: #e94560;
+            color: white;
+            box-shadow: 0 0 34px hsl(350, 88%, 67%);
+            border-radius: 55px;
+            padding: 20px;
+        }
+
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                    class="injected-svg" data-src="/assets/images/icons/mail.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3 3.75C2.58921 3.75 2.25 4.08921 2.25 4.5V13.5C2.25 13.9108 2.58921 14.25 3 14.25H15C15.4108 14.25 15.75 13.9108 15.75 13.5V4.5C15.75 4.08921 15.4108 3.75 15 3.75H3ZM0.75 4.5C0.75 3.26079 1.76079 2.25 3 2.25H15C16.2392 2.25 17.25 3.26079 17.25 4.5V13.5C17.25 14.7392 16.2392 15.75 15 15.75H3C1.76079 15.75 0.75 14.7392 0.75 13.5V4.5Z"
+                        fill="white"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0.88564 4.06997C1.12318 3.73063 1.59082 3.6481 1.93016 3.88564L9.00006 8.83457L16.07 3.88564C16.4093 3.6481 16.877 3.73063 17.1145 4.06997C17.352 4.4093 17.2695 4.87695 16.9302 5.11449L9.43016 10.3645C9.17192 10.5453 8.82821 10.5453 8.56997 10.3645L1.06997 5.11449C0.730631 4.87695 0.648105 4.4093 0.88564 4.06997Z"
+                        fill="white"></path>
+                </svg>
+                <span>info@ComGuLnw.com</span>
+            </div>
+            <div>
+                <span>ComGuLnw ถ้าคุณชอบคอมพิวเตอร์ เราคือเพื่อนกัน</span>
+            </div>
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="menu.html">
+                    <img src="milk.png" alt="milk">
+                </a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zm-5.442 1.398a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z">
+                    </path>
+                </svg>
+            </div>
+            <div class="user-icons">
+                <span><a href="sing_in.html">Login</a></span>
+            </div>
+        </nav>
+        <div class="menu">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-grid-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="Contact.html">Contact</a>
+                    <a href="Products.html">Products</a>
+                    <a href="About Us.html">About Us</a>
+                    <a href="laptop.html">Laptop</a>
+                    <a href="desktop.html">Desktop</a>
+                    <a href="keyboard.html">Keyboard</a>
+                    <a href="mouse.html">Mouse</a>
+                </div>
+            </div>
+            <ul>
+                <li><a href="menu.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="Mouse">
+            <h1>Mouse</h1>
+            <div class="product-list">
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/hyjal-g502-hero/g502-hero-gallery-2-nb.png?v=1"
+                            alt="mouse1">
+                        <h2>Logitech G502 Hero</h2>
+                        <p>Price: 1,990 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/en-th/products/gaming-mice/g502-hero-gaming-mouse.910-005471.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-black-gallery-6.png?v=1"
+                            alt="mouse2">
+                        <h2>Logitech Pro X</h2>
+                        <p>Price: 3,290 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/pro-x-superlight-wireless-mouse.910-005882.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-2-lightspeed/gallery/pro2-lightspeed-black-new-gallery1.png?v=1"
+                            alt="mouse3">
+                        <h2>PRO 2 LIGHTSPEED</h2>
+                        <p>Price: 4,290 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/pro-2-lightspeed.910-007297.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g703/g703-gallery-1.png?v=1"
+                            alt="mouse4">
+                        <h2>Logitech G703</h2>
+                        <p>Price: 3,000 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g703-hero-wireless-gaming-mouse.910-005642.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/G309-Lightspeed-Gaming-Mouse/gallery/g309-lightspeed-wireless-mouse-black-gallery-1.png?v=1"
+                            alt="mouse5">
+                        <h2>G309 LIGHTSPEED</h2>
+                        <p>Price: 2,690 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g309-lightspeed-gaming-mouse.910-007201.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-plus/gallery/g502x-plus-gallery-2-black.png?v=1"
+                            alt="mouse6">
+                        <h2>G502 X PLUS</h2>
+                        <p>Price: 4,990 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g502-x-plus-wireless-lightforce.910-006164.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g305/g305-gallery-1.png?v=1"
+                            alt="mouse7">
+                        <h2>Logitech G305</h2>
+                        <p>Price: 1,990 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g304-lightspeed-wireless-gaming-mouse.910-005284.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/g203-black-gallery-2.png?v=1"
+                            alt="mouse8">
+                        <h2>Logitech G203</h2>
+                        <p>Price: 3,300 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g102-lightsync-rgb-gaming-mouse.910-005802.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pop-wireless-mouse/gallery/pop-mouse-gallery-off-white-1.png?v=1"
+                            alt="mouse9">
+                        <h2>POP Mouse</h2>
+                        <p>Price: 990 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/pop-wireless-mouse.910-007400.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pebble-mouse-2-m350s/gallery/pebble-mouse-2-m350s-top-tonal-white-gallery.png?v=1"
+                            alt="mouse10">
+                        <h2>Pebble Mouse 2</h2>
+                        <p>Price: 1,049 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/pebble-2-m350s-wireless-mouse.910-006986.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m575s-ergo-wireless-trackball/gallery/ergo-m575s-m575sp-graphite-blue-ball-gallery-1.png?v=1"
+                            alt="mouse11">
+                        <h2>ERGO M575S</h2>
+                        <p>Price: 1,590 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/ergo-m575s-wireless-trackball.910-007031.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/gallery/lift-gallery-rose-1.png?v=1"
+                            alt="mouse12">
+                        <h2>Logitech LIFT</h2>
+                        <p>Price: 1,890 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/lift-vertical-ergonomic-mouse.910-006481.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/product-gallery/m650-medium-rose-top.png?v=1"
+                            alt="mouse13">
+                        <h2>Signature M650</h2>
+                        <p>Price: 990 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/m650-signature-wireless-mouse.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3s/product-gallery/pale-grey/mx-anywhere-3s-mouse-top-view-pale-grey.png?v=1"
+                            alt="mouse14">
+                        <h2>MX Anywhere 3S</h2>
+                        <p>Price: 2,290 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/mx-anywhere-3s.910-006933.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-top-view-graphite.png?v=1"
+                            alt="mouse15">
+                        <h2>MX Master 3S</h2>
+                        <p>Price: 3,190 THB</p>
+                        <button><a href="https://www.logitech.com/th-th/products/mice/mx-master-3s.910-006561.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m196/gallery/m196-white-topview-gallery1.png?v=1"
+                            alt="mouse16">
+                        <h2>M196 Bluetooth</h2>
+                        <p>Price: 349 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/m196-bluetooth-mouse.910-007463.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m317-wireless-mouse/gallery/m317-colt-glossy-gallery-1.png?v=1"
+                            alt="mouse17">
+                        <h2>Logitech M235</h2>
+                        <p>Price: 690 THB</p>
+                        <button><a
+                                href="https://www.logitech.com/th-th/products/mice/m235-wireless-mouse.910-003384.html?sp=1&searchclick=logi">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-lightspeed/gallery/g502x-lightspeed-gallery-2-black.png?v=1"
+                            alt="mouse18">
+                        <h2>G502 X LIGHTSPEED</h2>
+                        <p>Price: 3,890 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g502-x-wireless-lightforce.910-006182.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-wireless-gaming-mouse/pro-wireless-carbon-gallery-1.png?v=1"
+                            alt="mouse19">
+                        <h2>Logitech PRO</h2>
+                        <p>Price: 3,690 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/pro-wireless-mouse.910-005274.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <img src="https://resource.logitechg.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-corded/gallery/g502x-corded-gallery-1-white.png?v=1"
+                            alt="mouse20">
+                        <h2>Logitech G502 X</h2>
+                        <p>Price: 1,990 THB</p>
+                        <button><a
+                                href="https://www.logitechg.com/th-th/products/gaming-mice/g502-x-wired-lightforce.910-006148.html">Buy
+                                Now</a></button>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 ComGuLnw. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
